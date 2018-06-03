@@ -10,30 +10,31 @@
                 <p>{{rolling}} </p>
               </div>
             </div>
+          </div>
 
             <div class=" row buttons">
-              <button class="btn btn-primary" v-on:click="rollOnce"> Roll once </button>
+              <button class="btn btn-primary" style="width:110px" v-on:click="rollOnce"> Roll once </button>
               <button class="btn btn-success"  v-on:click="keepRolling"> Keep Rolling</button>
             </div>
 
             <div class="row">
-              <div class="buttons">
+              <div class="buttonsReset">
                 <button class="btn btn-danger" v-on:click="startOver"> Start Over</button>
               </div>
             </div>
-          </div>
+
         </div>
 
         <div class="col-md-6">
            <div class="row">
              <div class="showTable">
-                <h3 v-bind="totalCounter= this.$store.state.counter1+this.$store.state.counter2+this.$store.state.counter3+
-                  this.$store.state.counter4+this.$store.state.counter5+this.$store.state.counter6">{{totalCounter}} Dice Rolls</h3>
+                <h3 v-bind="this.$store.state.totalCounter = this.$store.state.counter1+this.$store.state.counter2+this.$store.state.counter3+
+                  this.$store.state.counter4+this.$store.state.counter5+this.$store.state.counter6">{{this.$store.state.totalCounter}} Dice Rolls</h3>
                 <table class="table table-dark table-hover">
               <thead>
               <tr>
-                <th>Dice Number</th>
-                <th>Number of Count</th>
+                <th>Side</th>
+                <th>Rolls</th>
               </tr>
               </thead>
               <tbody>
@@ -102,7 +103,7 @@
       keepRolling() {
         var timeInterval = 500;
         for (var i= 0; i< 100; i++) {
-          this.rolling = setTimeout(this.rollOnce, i * timeInterval)
+          this.rolling = setTimeout(this.rollOnce,i*timeInterval)
         }
       },
 
@@ -133,24 +134,36 @@
     border-radius: 10px;
   }
   .buttons{
-    margin:0 auto;
     padding: 20px;
-    position: relative;
+    margin-left: 19%;
+   /* position: relative; */
   }
   .buttons :first-child{
     margin: 0 20px;
+
+  }
+  .buttonsReset{
+    margin-left: 40%;
+
   }
 
   .showTable{
    margin-left: 30%;
+    width: 50%;
+  }
+  .showTable th{
+    text-align: center;
   }
   .containerDice{
     background-image: url("../assets/img/diceback.jpg");
     border-radius: 20%;
-    position: absolute;
-    margin-top: 50px;
-    margin-left: 30%;
-    height: 80%;
+   /* position: absolute; */
+    margin-top: 40px;
+    margin-left: 25%;
+    margin-right: 20%;
+    height: 50%;
+    width: 50%;
+    padding-top:30px;
 
   }
   td,thead{
