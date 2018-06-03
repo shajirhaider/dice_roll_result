@@ -11,6 +11,7 @@ export const store=new Vuex.Store({
     counter4:0,
     counter5:0,
     counter6:0,
+    totalCounter:0
   }
 
 });
